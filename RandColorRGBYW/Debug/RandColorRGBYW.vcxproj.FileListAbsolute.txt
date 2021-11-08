@@ -1,0 +1,3 @@
+H:\Disk\qwerty\C++\My projects\RandColorRGBYW\RandColorRGBYW\Debug\RandColorRGBYW.vcxproj.AssemblyReference.cache
+H:\Disk\qwerty\C++\My projects\RandColorRGBYW\RandColorRGBYW\Debug\RandColorRGBYW.MyForm.resources
+H:\Disk\qwerty\C++\My projects\RandColorRGBYW\RandColorRGBYW\Debug\RandColorRGBYW.vcxproj.GenerateResource.cache

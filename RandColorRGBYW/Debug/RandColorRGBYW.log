@@ -1,0 +1,4 @@
+﻿  MyForm.cpp
+H:\Disk\qwerty\C++\My projects\RandColorRGBYW\RandColorRGBYW\MyForm.h(263,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  GenerateColor.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  RandColorRGBYW.vcxproj -> H:\Disk\qwerty\C++\My projects\RandColorRGBYW\Debug\RandColorRGBYW.exe

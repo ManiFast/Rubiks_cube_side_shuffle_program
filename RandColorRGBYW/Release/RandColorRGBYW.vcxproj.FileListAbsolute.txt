@@ -1,0 +1,2 @@
+H:\Disk\qwerty\C++\My projects\RandColorRGBYW\RandColorRGBYW\Release\RandColorRGBYW.MyForm.resources
+H:\Disk\qwerty\C++\My projects\RandColorRGBYW\RandColorRGBYW\Release\RandColorRGBYW.vcxproj.GenerateResource.cache
