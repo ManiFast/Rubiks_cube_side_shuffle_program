@@ -10,6 +10,7 @@ namespace RandColorRGBYW {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -58,7 +59,10 @@ namespace RandColorRGBYW {
 
 
 	private: System::Windows::Forms::Panel^ p12;
-	private: System::Windows::Forms::TextBox^ textArea;
+
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
 
 
 	private:
@@ -87,9 +91,12 @@ namespace RandColorRGBYW {
 			this->p33 = (gcnew System::Windows::Forms::Panel());
 			this->p12 = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textArea = (gcnew System::Windows::Forms::TextBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			this->tableLayoutPanel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -102,6 +109,7 @@ namespace RandColorRGBYW {
 			// 
 			// tableLayoutPanel1
 			// 
+			this->tableLayoutPanel1->BackColor = System::Drawing::SystemColors::InactiveCaptionText;
 			this->tableLayoutPanel1->ColumnCount = 3;
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				33.33333F)));
@@ -203,9 +211,11 @@ namespace RandColorRGBYW {
 			// 
 			// button1
 			// 
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->button1->ForeColor = System::Drawing::Color::White;
 			this->button1->Location = System::Drawing::Point(12, 378);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(236, 41);
@@ -214,37 +224,85 @@ namespace RandColorRGBYW {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::Shuffle);
 			// 
-			// textArea
+			// pictureBox1
 			// 
-			this->textArea->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(331, 378);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(41, 41);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 3;
+			this->pictureBox1->TabStop = false;
+			// 
+			// button2
+			// 
+			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textArea->Location = System::Drawing::Point(255, 378);
-			this->textArea->Multiline = true;
-			this->textArea->Name = L"textArea";
-			this->textArea->Size = System::Drawing::Size(117, 41);
-			this->textArea->TabIndex = 2;
+			this->button2->ForeColor = System::Drawing::Color::White;
+			this->button2->Location = System::Drawing::Point(254, 378);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(30, 41);
+			this->button2->TabIndex = 1;
+			this->button2->Text = L"Cl";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::Clear);
+			// 
+			// button3
+			// 
+			this->button3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button3.BackgroundImage")));
+			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button3->ForeColor = System::Drawing::Color::White;
+			this->button3->Location = System::Drawing::Point(295, 378);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(30, 41);
+			this->button3->TabIndex = 1;
+			this->button3->Text = L"Op";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::Read);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(384, 431);
-			this->Controls->Add(this->textArea);
+			this->Controls->Add(this->button3);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Tag = L"MainWin";
 			this->Text = L"Cube shuffle";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MainStart);
 			this->panel1->ResumeLayout(false);
 			this->tableLayoutPanel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
-#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup") //hide console window
+
+		// GLOBAL
+	
+		int countt = 0;
+
+
+
+//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup") //hide console window
+	private: System::Void MainStart(System::Object^ sender, System::EventArgs^ e) {
+		cout << "Ready" << endl;
+		cout << "0 Red\n1 Blue\n2 Green\n3 Orange\n4 Yellow\n5 White\n";
+		cout << "===============\n";
+
+	}
 	private: System::Void tableLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void Shuffle(System::Object^ sender, System::EventArgs^ e) {
@@ -262,44 +320,48 @@ namespace RandColorRGBYW {
 
 		srand(time(NULL));
 
-		for (int ch, i = 0; i < 6; i++)
+
+		vector<int> logsCor(9);
+
+
+
+		for (int ch, i = 0; i < 9; i++)
 		{
 			switch (i)
 			{
 			case 0:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p11->BackColor = Color::FromArgb(222, 0, 67);
-					textArea->Text = "S0";
 				}
 				if (ch == 1)
 				{
 					p11->BackColor = Color::FromArgb(0, 68, 213);
-					textArea->Text = "S1";
 				}
 				if (ch == 2)
 				{
 					p11->BackColor = Color::FromArgb(8, 196, 83);
-					textArea->Text = "S2";
 				}
 				if (ch == 3)
 				{
 					p11->BackColor = Color::FromArgb(240,119,14);
-					textArea->Text = "S3";
 				}
 				if (ch == 4)
 				{
 					p11->BackColor = Color::FromArgb(231, 210, 56);
-					textArea->Text = "S4";
 				}
 				if (ch == 5)
 				{
 					p11->BackColor = Color::FromArgb(255, 255, 255);
-					textArea->Text = "S5";
 				}
+				break;
 			case 1:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p12->BackColor = Color::FromArgb(222, 0, 67);
@@ -314,7 +376,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p12->BackColor = Color::FromArgb(240,119,14);
+					p12->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -324,8 +386,11 @@ namespace RandColorRGBYW {
 				{
 					p12->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 2:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p13->BackColor = Color::FromArgb(222, 0, 67);
@@ -340,7 +405,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p13->BackColor = Color::FromArgb(240,119,14);
+					p13->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -350,8 +415,11 @@ namespace RandColorRGBYW {
 				{
 					p13->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 3:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p21->BackColor = Color::FromArgb(222, 0, 67);
@@ -366,7 +434,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p21->BackColor = Color::FromArgb(240,119,14);
+					p21->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -376,8 +444,11 @@ namespace RandColorRGBYW {
 				{
 					p21->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 4:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p22->BackColor = Color::FromArgb(222, 0, 67);
@@ -392,7 +463,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p22->BackColor = Color::FromArgb(240,119,14);
+					p22->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -402,8 +473,11 @@ namespace RandColorRGBYW {
 				{
 					p22->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 5:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p23->BackColor = Color::FromArgb(222, 0, 67);
@@ -418,7 +492,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p23->BackColor = Color::FromArgb(240,119,14);
+					p23->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -428,8 +502,11 @@ namespace RandColorRGBYW {
 				{
 					p23->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 6:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p31->BackColor = Color::FromArgb(222, 0, 67);
@@ -444,7 +521,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p31->BackColor = Color::FromArgb(240,119,14);
+					p31->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -454,8 +531,11 @@ namespace RandColorRGBYW {
 				{
 					p31->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 7:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p32->BackColor = Color::FromArgb(222, 0, 67);
@@ -470,7 +550,7 @@ namespace RandColorRGBYW {
 				}
 				if (ch == 3)
 				{
-					p32->BackColor = Color::FromArgb(240,119,14);
+					p32->BackColor = Color::FromArgb(240, 119, 14);
 				}
 				if (ch == 4)
 				{
@@ -480,8 +560,11 @@ namespace RandColorRGBYW {
 				{
 					p32->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			case 8:	//=========================================================
 				ch = CRand();
+				cout << ch << endl;
+				logsCor[i] = ch;
 				if (ch == 0)
 				{
 					p33->BackColor = Color::FromArgb(222, 0, 67);
@@ -506,14 +589,44 @@ namespace RandColorRGBYW {
 				{
 					p33->BackColor = Color::FromArgb(255, 255, 255);
 				}
+				break;
 			default:
 				break;
 			}
 		}
+		
+		cout << "\n";
+
+		int logs[9]{};
+
+		for (int i = 0; i < logsCor.size(); i++)
+		{
+			logs[i] = logsCor[i];
+		}
+
+		inputF(logs, logsCor.size(), countt);
+		countt++;
+
+		//string clear;
+		//cin >> clear;
+		//if (clear == "clear")
+		//{
+		//	system("cls");
+		//}
+
+		//clearF(clear);
 
 		//p11->BackColor = Color::FromArgb(222, 0, 67);
 		//p12->BackColor = Color::FromArgb(0, 68, 213);
 		//p13->BackColor = Color::FromArgb(8, 196, 83);
 	}
-	};
+private: System::Void Clear(System::Object^ sender, System::EventArgs^ e) {
+	system("cls");
+
+	clearF(countt);
+}
+private: System::Void Read(System::Object^ sender, System::EventArgs^ e) {
+	readF();
+}
+};
 }
